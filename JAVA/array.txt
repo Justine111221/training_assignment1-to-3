@@ -1,0 +1,129 @@
+javac Hello.java
+java Hello
+dir
+
+
+
+-----------------------
+IDE ==>Integrated development environment
+
+--------------------------------------
+
+ArrayExample:
+
+package mycorejavaproject;
+import java.util.Scanner;
+ 
+public class ArrayDemo {
+public static void main(String a[]) {
+    int tab;
+    //int table[];
+    //int table[]= {5,10};
+    int table[]=new int[10];// 10 is the size of the Array
+
+    //int table[]=new int[] {5,10,15};    
+    //table[3]=20;
+    //System.out.println(table[0] + " " + table[1] + " " + table[2]+ " " + table[3] );
+    //System.out.println(table[0]+ table[1] + table[2] + table[3] );
+
+    // creating a Object 
+    //syntax: classname Objectname=new classname();
+    Scanner sc=new Scanner(System.in);
+    System.out.println("ENter a Number TO create its table");
+    tab=sc.nextInt();    
+    for(int index=0,multiplier=1;index<=9;index++,multiplier++) 
+    {
+        table[index]=tab* multiplier;
+        //System.out.println(table[index]);
+    }    
+    for(int v:table)System.out.println(v);
+
+    // String Array example
+    String[] names=new String[10];
+    names[0] ="sriram";
+    names[1] ="Rajat";
+    names[2] ="Rahul";
+    names[3] ="Ashish";
+    names[4] ="Vinay";
+    names[5] ="Nikita";
+
+    for(int i=0;i<10;i++)    {
+        System.out.println(names[i]);
+    }
+
+    // enhanced for loop
+    for(String item:names)
+        System.out.println(item);
+ 
+}
+}
+
+--------------------------------
+
+example of a static Method:
+
+package mycorejavaproject;
+ 
+import java.util.Scanner;
+ 
+public class ArrayDemo {
+ 
+    public static void GenerateTable(int tab) {
+        int table[] = new int[10];
+        for (int index = 0, multiplier = 1; index <= 9; index++, multiplier++)
+            table[index] = tab * multiplier;
+        for (int v : table)
+            System.out.println(v);
+    }
+    public static void main(String a[]) {
+        int tab;
+        int ans=1;
+        Scanner sc = new Scanner(System.in);
+        do {        
+        System.out.println("ENter a Number TO create its table");
+        tab = sc.nextInt();
+        GenerateTable(tab);
+
+        System.out.println("Generate more table... enter 1");
+        ans=sc.nextInt();
+
+        }while(ans==1);
+    }
+}
+
+------------------------------------------------------
+
+Example: calling a non static Method
+
+
+package mycorejavaproject;
+ 
+import java.util.Scanner;
+ 
+public class ArrayDemo {
+ 
+    public void GenerateTable(int tab) {
+        int table[] = new int[10];
+        for (int index = 0, multiplier = 1; index <= 9; index++, multiplier++)
+            table[index] = tab * multiplier;
+        for (int v : table)
+            System.out.println(v);
+    }
+    public static void main(String a[]) {
+        //Object creation
+        ArrayDemo obj=new ArrayDemo();
+
+        int tab;
+        int ans=1;
+        Scanner sc = new Scanner(System.in);
+        do {        
+        System.out.println("ENter a Number TO create its table");
+        tab = sc.nextInt();
+        obj.GenerateTable(tab);
+
+        System.out.println("Generate more table... enter 1");
+        ans=sc.nextInt();
+
+        }while(ans==1);
+    }
+}
